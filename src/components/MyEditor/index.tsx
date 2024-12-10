@@ -13,6 +13,7 @@ import LineHeight from './extensions/line-height'
 import ColorPicker from '@rc-component/color-picker';
 import '@rc-component/color-picker/assets/index.css';
 import Print from './extensions/print'
+import { useState } from 'react'
 
 
 const extensions = [StarterKit, Document, Paragraph, Text, Bold, Indent.configure({
@@ -36,9 +37,13 @@ const extensions = [StarterKit, Document, Paragraph, Text, Bold, Indent.configur
 const content = '<p>Hello World12!</p>'
 
 const MyEditor = () => {
+    const [value, setValue] = useState('')
     const editor = useEditor({
         extensions,
         content,
+        onUpdate({ editor }) {
+            console.log('editor', editor.getHTML());
+        },
     })
 
     function removeFormatting() {
@@ -108,7 +113,7 @@ const MyEditor = () => {
                     <button onClick={removeFormatting}>Remove format</button>
                 </div>
                 <div className={'content'}>
-                    <EditorContent editor={editor} />
+                    <EditorContent va editor={editor} />
                 </div>
 
             </div>
