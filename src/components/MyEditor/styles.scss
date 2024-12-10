@@ -1,0 +1,41 @@
+.editor {
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    padding: 16px 30px;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .content {
+    border-top: 1px solid #ccc;
+    flex: 1;
+    text-align: left;
+    padding: 16px 30px;
+
+    .tiptap {
+      width: 100%;
+      height: 100%;
+      outline: none;
+
+      .ProseMirror:focus {
+        outline: none !important;
+      }
+    }
+  }
+}
+
+ul[data-type="taskList"] {
+  li {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+  }
+}
